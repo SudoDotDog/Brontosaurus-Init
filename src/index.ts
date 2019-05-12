@@ -12,7 +12,7 @@ const database: string | undefined = process.env.BRONTOSAURUS_DB || process.env.
 
 if (!database) {
 
-    panic.code(ERROR_CODE.DATABASE_LINK_NOT_ASSIGNED);
+    throw panic.code(ERROR_CODE.DATABASE_LINK_NOT_ASSIGNED);
 }
 
 const db: Connection = connect(database);
