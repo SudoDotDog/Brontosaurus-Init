@@ -18,3 +18,10 @@ export const preparePreference = async () => {
         type: 'number',
     });
 };
+
+export const checkPrepared = async (): Promise<boolean> => {
+
+    const isPrepared = await PreferenceController.getSinglePreference('prepared');
+
+    return isPrepared;
+};

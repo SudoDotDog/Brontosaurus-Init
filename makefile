@@ -9,7 +9,13 @@ mocha := node_modules/.bin/mocha
 
 .IGNORE: clean-linux
 
-main: dev
+main: run
+
+run:
+	@echo "[INFO] Starting with ts-node"
+	@NODE_ENV=development \
+	BRONTOSAURUS_DB=$(DB) \
+	$(ts_node) src/index.ts
 
 dev:
 	@echo "[INFO] Building for development"
