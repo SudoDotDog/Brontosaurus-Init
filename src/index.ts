@@ -6,11 +6,13 @@
 
 import { connect } from "@brontosaurus/db";
 import { Connection } from "mongoose";
+import { ERROR_CODE, panic } from "./panic";
 
 const database: string | undefined = process.env.BRONTOSAURUS_DB || process.env.BRONTOSAURUS_DATABASE;
 
 if (!database) {
 
+    panic.code(ERROR_CODE.DATABASE_LINK_NOT_ASSIGNED);
 }
 
 const db: Connection = connect(database);
