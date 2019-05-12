@@ -60,6 +60,6 @@ const log = SudooLog.create(LOG_LEVEL.DEBUG);
     } finally {
 
         await db.close();
-        log.info('Database Closed')
+        log.info('Database Closed');
     }
 })();

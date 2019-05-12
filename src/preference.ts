@@ -21,7 +21,7 @@ export const preparePreference = async () => {
 
 export const checkPrepared = async (): Promise<boolean> => {
 
-    const isPrepared = await PreferenceController.getSinglePreference('prepared');
+    const isPrepared: boolean | null = await PreferenceController.getSinglePreference('prepared');
 
-    return isPrepared;
+    return Boolean(isPrepared);
 };
