@@ -1,0 +1,50 @@
+{
+  "name": "@brontosaurus/init",
+  "version": "1.0.0",
+  "description": ":herb: Initialize brontosaurus database",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SudoDotDog/Brontosaurus-Init.git"
+  },
+  "keywords": [
+    "Brontosaurus"
+  ],
+  "author": "WMXPY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SudoDotDog/Brontosaurus-Init/issues"
+  },
+  "homepage": "https://github.com/SudoDotDog/Brontosaurus-Init#readme",
+  "dependencies": {
+    "@brontosaurus/db": "^1.2.4"
+  },
+  "devDependencies": {
+    "@sudoo/triforce": "^1.6.0"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "script/**/*.ts",
+      "src/**/*.ts"
+    ],
+    "instrument": true,
+    "reporter": [
+      "json",
+      "text-summary"
+    ],
+    "report-dir": "coverage",
+    "require": [
+      "./test/tshook.js"
+    ],
+    "sourceMap": true
+  }
+}
