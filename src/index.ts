@@ -33,7 +33,7 @@ const log = SudooLog.create(LOG_LEVEL.DEBUG);
 
         const isPrepared: boolean = await checkPrepared();
 
-        if (!isPrepared) {
+        if (isPrepared) {
             throw panic.code(ERROR_CODE.ALREADY_PREPARED);
         }
 
