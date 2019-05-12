@@ -4,11 +4,11 @@
  * @description Application
  */
 
-import { ApplicationController, INTERNAL_APPLICATION } from "@brontosaurus/db";
+import { ApplicationController, IApplicationModel, INTERNAL_APPLICATION } from "@brontosaurus/db";
 
-export const prepareAccount = async () => {
+export const prepareApplication = async () => {
 
-    const redApplication = ApplicationController.createUnsavedApplication(INTERNAL_APPLICATION.RED, INTERNAL_APPLICATION.RED, 3600000, INTERNAL_APPLICATION.RED);
+    const redApplication: IApplicationModel = ApplicationController.createUnsavedApplication(INTERNAL_APPLICATION.RED, INTERNAL_APPLICATION.RED, 3600000, INTERNAL_APPLICATION.RED);
 
     await redApplication.save();
 };

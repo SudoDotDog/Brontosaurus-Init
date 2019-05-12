@@ -4,15 +4,28 @@
  * @description Group
  */
 
-import { GroupController, INTERNAL_USER_GROUP } from "@brontosaurus/db";
+import { GroupController, IGroupModel, INTERNAL_USER_GROUP } from "@brontosaurus/db";
+import { ObjectID } from "bson";
 
-export const prepareGroup = async () => {
+export type PreparedGroup = {
+    readonly adminGroupId: ObjectID;
+    readonly selfControlGroupId: ObjectID;
+    readonly organizationControlGroupId: ObjectID;
+};
 
-    const adminGroup = GroupController.createUnsavedGroup(INTERNAL_USER_GROUP.SUPER_ADMIN);
-    const selfControlGroup = GroupController.createUnsavedGroup(INTERNAL_USER_GROUP.SELF_CONTROL);
-    const organizationControlGroup = GroupController.createUnsavedGroup(INTERNAL_USER_GROUP.ORGANIZATION_CONTROL);
+export const prepareGroup = async (): Promise<PreparedGroup> => {
+
+    const adminGroup: IGroupModel = GroupController.createUnsavedGroup(INTERNAL_USER_GROUP.SUPER_ADMIN);
+    const selfControlGroup: IGroupModel = GroupController.createUnsavedGroup(INTERNAL_USER_GROUP.SELF_CONTROL);
+    const organizationControlGroup: IGroupModel = GroupController.createUnsavedGroup(INTERNAL_USER_GROUP.ORGANIZATION_CONTROL);
 
     await adminGroup.save();
     await selfControlGroup.save();
     await organizationControlGroup.save();
+
+    return {
+        adminGroupId: adminGroup._id,
+        selfControlGroupId: selfControlGroup._id,
+        organizationControlGroupId: organizationControlGroup._id,
+    };
 };
