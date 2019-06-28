@@ -8,11 +8,13 @@ import { AccountController } from "@brontosaurus/db";
 import { ObjectID } from "bson";
 import { PreparedGroup } from "./group";
 
-export const prepareAccount = async (groups: PreparedGroup, testOrganization: ObjectID) => {
+export const prepareAccount = async (groups: PreparedGroup) => {
 
     const adminUser = AccountController.createUnsavedAccount(
         'admin',
         'admin',
+        'email@email.com',
+        '1234567890',
         undefined,
         [
             groups.adminGroupId,
@@ -24,20 +26,5 @@ export const prepareAccount = async (groups: PreparedGroup, testOrganization: Ob
         },
     );
 
-    const testUser = AccountController.createUnsavedAccount(
-        'test',
-        'test',
-        testOrganization,
-        [
-            groups.organizationControlGroupId,
-            groups.selfControlGroupId,
-        ],
-        {},
-        {
-            tag: "Default",
-        },
-    );
-
     await adminUser.save();
-    await testUser.save();
 };

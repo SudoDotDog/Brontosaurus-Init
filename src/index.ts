@@ -11,7 +11,6 @@ import { Connection } from "mongoose";
 import { prepareAccount } from "./account";
 import { prepareApplication } from "./application";
 import { PreparedGroup, prepareGroup } from "./group";
-import { prepareOrganization } from "./organization";
 import { ERROR_CODE, panic } from "./panic";
 import { checkPrepared, preparePreference } from "./preference";
 
@@ -46,11 +45,8 @@ const log = SudooLog.create(LOG_LEVEL.DEBUG);
         log.info('Group');
         const groups: PreparedGroup = await prepareGroup();
 
-        log.info('Organization');
-        const organization: ObjectID = await prepareOrganization();
-
         log.info('Account');
-        await prepareAccount(groups, organization);
+        await prepareAccount(groups);
 
         log.info('Succeed');
     } catch (err) {
