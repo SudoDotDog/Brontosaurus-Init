@@ -11,10 +11,12 @@ export const prepareApplication = async () => {
     const redApplication: IApplicationModel = ApplicationController.createUnsavedApplication(
         INTERNAL_APPLICATION.RED,
         INTERNAL_APPLICATION.RED,
-        3600000,
+        36000000,
         INTERNAL_APPLICATION.RED + Math.random().toString(),
         {},
     );
+
+    redApplication.refreshGreen();
 
     await redApplication.save();
 };

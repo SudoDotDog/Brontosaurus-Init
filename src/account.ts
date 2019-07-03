@@ -13,8 +13,8 @@ export const prepareAccount = async (groups: PreparedGroup) => {
     const adminUser = AccountController.createUnsavedAccount(
         'admin',
         'admin',
-        'email@email.com',
-        '1234567890',
+        'admin@email.com',
+        '123456789',
         undefined,
         [
             groups.adminGroupId,
