@@ -37,7 +37,7 @@ const log: SudooLog = SudooLog.create(LOG_LEVEL.DEBUG);
         const applications: IApplicationModel[] = await ApplicationController.getAllApplications();
         for (const application of applications) {
 
-            const anchor: string = fitAnchor(application.name);
+            const anchor: string = fitAnchor(application.key);
             (application as any).anchor = anchor;
 
             await application.save();

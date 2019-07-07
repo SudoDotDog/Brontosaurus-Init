@@ -5,6 +5,7 @@
         "codecov",
         "connor",
         "ifeq",
+        "polyfill",
         "sudoo",
         "triforce",
         "tshook"
