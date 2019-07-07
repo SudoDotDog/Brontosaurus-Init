@@ -6,7 +6,6 @@
 
 import { connect } from "@brontosaurus/db";
 import { LOG_LEVEL, SudooLog } from "@sudoo/log";
-import { ObjectID } from "bson";
 import { Connection } from "mongoose";
 import { prepareAccount } from "./account";
 import { prepareApplication } from "./application";
