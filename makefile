@@ -11,6 +11,12 @@ mocha := node_modules/.bin/mocha
 
 main: run
 
+polyfill-anchor:
+	@echo "[INFO] Starting polyfill anchor with ts-node"
+	@NODE_ENV=production \
+	BRONTOSAURUS_DB=$(DB) \
+	$(ts_node) src/polyfill/fix-anchor.ts
+
 run:
 	@echo "[INFO] Starting with ts-node"
 	@NODE_ENV=development \
