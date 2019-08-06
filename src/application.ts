@@ -12,7 +12,6 @@ export const prepareApplication = async () => {
         INTERNAL_APPLICATION.RED,
         INTERNAL_APPLICATION.RED,
         36000000,
-        INTERNAL_APPLICATION.RED + Math.random().toString(),
         {},
     );
 

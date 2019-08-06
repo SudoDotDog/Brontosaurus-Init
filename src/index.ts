@@ -29,23 +29,23 @@ const log = SudooLog.create(LOG_LEVEL.DEBUG);
 
     try {
 
-        const isPrepared: boolean = await checkPrepared();
+        // const isPrepared: boolean = await checkPrepared();
 
-        if (isPrepared) {
-            throw panic.code(ERROR_CODE.ALREADY_PREPARED);
-        }
+        // if (isPrepared) {
+        //     throw panic.code(ERROR_CODE.ALREADY_PREPARED);
+        // }
 
-        log.info('Preference');
-        await preparePreference();
+        // log.info('Preference');
+        // await preparePreference();
 
         log.info('Application');
         await prepareApplication();
 
-        log.info('Group');
-        const groups: PreparedGroup = await prepareGroup();
+        // log.info('Group');
+        // const groups: PreparedGroup = await prepareGroup();
 
-        log.info('Account');
-        await prepareAccount(groups);
+        // log.info('Account');
+        // await prepareAccount(groups);
 
         log.info('Succeed');
     } catch (err) {
