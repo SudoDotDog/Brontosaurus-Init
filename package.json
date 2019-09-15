@@ -20,13 +20,13 @@
   },
   "homepage": "https://github.com/SudoDotDog/Brontosaurus-Init#readme",
   "dependencies": {
-    "@brontosaurus/db": "^3.1.4",
+    "@brontosaurus/db": "^3.2.0",
     "@sudoo/log": "^1.2.2",
     "connor": "^2.6.0"
   },
   "devDependencies": {
-    "@sudoo/triforce": "^1.8.2",
-    "@types/mongoose": "^5.5.16"
+    "@sudoo/triforce": "^1.8.3",
+    "@types/mongoose": "^5.5.17"
   },
   "nyc": {
     "extension": [
