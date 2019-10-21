@@ -5,6 +5,7 @@
  */
 
 import { AccountController } from "@brontosaurus/db";
+import { unique } from "@sudoo/bark/random";
 import { PreparedGroup } from "./group";
 
 export const prepareAccount = async (groups: PreparedGroup) => {
@@ -12,8 +13,25 @@ export const prepareAccount = async (groups: PreparedGroup) => {
     const adminUser = AccountController.createUnsavedAccount(
         'admin',
         'admin',
-        'Display',
-        'admin@email.com',
+        'Admin User',
+        'admin@example.com',
+        '123456789',
+        undefined,
+        [
+            groups.adminGroupId,
+            groups.selfControlGroupId,
+        ],
+        {},
+        {
+            tag: "Default",
+        },
+    );
+
+    const ghostUser = AccountController.createUnsavedAccount(
+        'ghost',
+        unique(new Date(), 32),
+        'Ghost User',
+        'ghost@example.com',
         '123456789',
         undefined,
         [
@@ -27,4 +45,5 @@ export const prepareAccount = async (groups: PreparedGroup) => {
     );
 
     await adminUser.save();
+    await ghostUser.save();
 };
