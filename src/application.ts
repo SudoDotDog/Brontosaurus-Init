@@ -16,6 +16,7 @@ export const prepareApplication = async () => {
     );
 
     redApplication.refreshGreen();
+    redApplication.portalAccess = true;
 
     await redApplication.save();
 };
