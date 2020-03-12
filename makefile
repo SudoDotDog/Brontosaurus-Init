@@ -17,6 +17,12 @@ polyfill-anchor:
 	BRONTOSAURUS_DB=$(DB) \
 	$(ts_node) src/polyfill/fix-anchor.ts
 
+polyfill-namespace:
+	@echo "[INFO] Starting polyfill Default Namespace with ts-node"
+	@NODE_ENV=production \
+	BRONTOSAURUS_DB=$(DB) \
+	$(ts_node) src/polyfill/default-namespace.ts
+
 run:
 	@echo "[INFO] Starting with ts-node"
 	@NODE_ENV=development \

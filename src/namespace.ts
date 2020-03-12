@@ -4,8 +4,7 @@
  * @description Namespace
  */
 
-import { INamespaceModel } from "@brontosaurus/db";
-import { getBrontosaurusAdminNamespace, getBrontosaurusDefaultNamespace } from "@brontosaurus/db/controller/namespace";
+import { INamespaceModel, NamespaceController } from "@brontosaurus/db";
 import { ObjectID } from "bson";
 
 export type PreparedNamespace = {
@@ -15,8 +14,8 @@ export type PreparedNamespace = {
 
 export const prepareNamespace = async (): Promise<PreparedNamespace> => {
 
-    const defaultNamespace: INamespaceModel = await getBrontosaurusDefaultNamespace();
-    const adminNamespace: INamespaceModel = await getBrontosaurusAdminNamespace();
+    const defaultNamespace: INamespaceModel = await NamespaceController.getBrontosaurusDefaultNamespace();
+    const adminNamespace: INamespaceModel = await NamespaceController.getBrontosaurusAdminNamespace();
 
     return {
         defaultNamespaceId: defaultNamespace._id,
