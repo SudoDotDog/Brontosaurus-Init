@@ -7,12 +7,14 @@
 import { AccountController } from "@brontosaurus/db";
 import { unique } from "@sudoo/bark/random";
 import { PreparedGroup } from "./group";
+import { PreparedNamespace } from "./namespace";
 
-export const prepareAccount = async (groups: PreparedGroup) => {
+export const prepareAccount = async (groups: PreparedGroup, namespaces: PreparedNamespace) => {
 
     const adminUser = AccountController.createUnsavedAccount(
         'admin',
         'admin',
+        namespaces.adminNamespaceId,
         'Admin User',
         'admin@example.com',
         '123456789',
@@ -29,7 +31,9 @@ export const prepareAccount = async (groups: PreparedGroup) => {
 
     const ghostUser = AccountController.createUnsavedAccount(
         'ghost',
+        // tslint:disable-next-line: no-magic-numbers
         unique(new Date(), 32),
+        namespaces.defaultNamespaceId,
         'Ghost User',
         'ghost@example.com',
         '123456789',

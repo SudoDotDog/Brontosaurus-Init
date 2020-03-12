@@ -22,6 +22,7 @@
     "@brontosaurus/db": "^3.13.0",
     "@sudoo/bark": "^2.7.2",
     "@sudoo/log": "^1.4.1",
+    "@sudoo/magic": "^1.6.0",
     "connor": "^2.7.0"
   },
   "devDependencies": {

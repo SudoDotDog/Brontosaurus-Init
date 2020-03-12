@@ -5,13 +5,14 @@
  */
 
 import { ApplicationController, IApplicationModel, INTERNAL_APPLICATION } from "@brontosaurus/db";
+import { TIME_IN_MILLISECONDS } from "@sudoo/magic";
 
 export const prepareApplication = async () => {
 
     const redApplication: IApplicationModel = ApplicationController.createUnsavedApplication(
         INTERNAL_APPLICATION.RED,
         INTERNAL_APPLICATION.RED,
-        36000000,
+        TIME_IN_MILLISECONDS.WEEK,
         {},
     );
 

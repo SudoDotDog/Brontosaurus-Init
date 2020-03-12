@@ -10,6 +10,7 @@ import { Connection } from "mongoose";
 import { prepareAccount } from "./account";
 import { prepareApplication } from "./application";
 import { PreparedGroup, prepareGroup } from "./group";
+import { PreparedNamespace, prepareNamespace } from "./namespace";
 import { ERROR_CODE, panic } from "./panic";
 import { checkPrepared, preparePreference } from "./preference";
 
@@ -44,8 +45,11 @@ const log = SudooLog.create(LOG_LEVEL.DEBUG);
         log.info('Group');
         const groups: PreparedGroup = await prepareGroup();
 
+        log.info('Namespace');
+        const namespaces: PreparedNamespace = await prepareNamespace();
+
         log.info('Account');
-        await prepareAccount(groups);
+        await prepareAccount(groups, namespaces);
 
         log.info('Succeed');
     } catch (err) {
