@@ -1,0 +1,11 @@
+{
+    "parserOptions": {
+        "project": "./typescript/tsconfig.lint.json"
+    },
+    "extends": [
+        "@sudoo/eslint-config"
+    ],
+    "rules": {
+        "no-invalid-this": "off"
+    }
+}

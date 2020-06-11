@@ -6,7 +6,7 @@
 
 import { PreferenceController } from "@brontosaurus/db";
 
-export const preparePreference = async () => {
+export const preparePreference = async (): Promise<void> => {
 
     await PreferenceController.setSinglePreference('prepared', true);
 };

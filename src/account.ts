@@ -9,7 +9,7 @@ import { unique } from "@sudoo/bark/random";
 import { PreparedGroup } from "./group";
 import { PreparedNamespace } from "./namespace";
 
-export const prepareAccount = async (groups: PreparedGroup, namespaces: PreparedNamespace) => {
+export const prepareAccount = async (groups: PreparedGroup, namespaces: PreparedNamespace): Promise<void> => {
 
     const adminUser = AccountController.createUnsavedAccount(
         'admin',
@@ -31,7 +31,6 @@ export const prepareAccount = async (groups: PreparedGroup, namespaces: Prepared
 
     const ghostUser = AccountController.createUnsavedAccount(
         'ghost',
-        // tslint:disable-next-line: no-magic-numbers
         unique(new Date(), 32),
         namespaces.defaultNamespaceId,
         'Ghost User',
