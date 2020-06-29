@@ -8,27 +8,7 @@ ts_node := node_modules/.bin/ts-node
 mocha := node_modules/.bin/mocha
 eslint := node_modules/.bin/eslint
 
-.IGNORE: clean-linux
-
-main: run
-
-polyfill-anchor:
-	@echo "[INFO] Starting polyfill anchor with ts-node"
-	@NODE_ENV=production \
-	BRONTOSAURUS_DB=$(DB) \
-	$(ts_node) src/polyfill/fix-anchor.ts
-
-polyfill-namespace:
-	@echo "[INFO] Starting polyfill Default Namespace with ts-node"
-	@NODE_ENV=production \
-	BRONTOSAURUS_DB=$(DB) \
-	$(ts_node) src/polyfill/default-namespace.ts
-
-run:
-	@echo "[INFO] Starting with ts-node"
-	@NODE_ENV=development \
-	BRONTOSAURUS_DB=$(DB) \
-	$(ts_node) src/index.ts
+main: dev
 
 dev:
 	@echo "[INFO] Building for development"
@@ -40,7 +20,8 @@ build:
 
 tests:
 	@echo "[INFO] Testing with Mocha"
-	@NODE_ENV=test $(mocha) --config test/.mocharc.json
+	@NODE_ENV=test \
+	$(mocha) --config test/.mocharc.json
 
 cov:
 	@echo "[INFO] Testing with Nyc and Mocha"
@@ -50,12 +31,14 @@ cov:
 lint:
 	@echo "[INFO] Linting"
 	@NODE_ENV=production \
-	$(eslint) . --ext .ts,.tsx --config ./typescript/.eslintrc.json
+	$(eslint) . --ext .ts,.tsx \
+	--config ./typescript/.eslintrc.json
 
 lint-fix:
 	@echo "[INFO] Linting and Fixing"
 	@NODE_ENV=development \
-	$(eslint) . --ext .ts,.tsx --config ./typescript/.eslintrc.json --fix
+	$(eslint) . --ext .ts,.tsx \
+	--config ./typescript/.eslintrc.json --fix
 
 install:
 	@echo "[INFO] Installing dev Dependencies"
@@ -69,10 +52,14 @@ license: clean
 	@echo "[INFO] Sign files"
 	@NODE_ENV=development $(ts_node) script/license.ts
 
-clean: clean-linux
+clean:
 	@echo "[INFO] Cleaning release files"
 	@NODE_ENV=development $(ts_node) script/clean-app.ts
 
-clean-linux:
-	@echo "[INFO] Cleaning dist files"
-	@rm -rf coverage
+publish: install tests lint license build
+	@echo "[INFO] Publishing package"
+	@cd app && npm publish --access=public
+
+publish-dry-run: install tests lint license build
+	@echo "[INFO] Publishing package"
+	@cd app && npm publish --access=public --dry-run
