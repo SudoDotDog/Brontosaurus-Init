@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@sudoo/triforce": "^2.7.6",
-    "@types/mongoose": "^5.7.30"
+    "@types/mongoose": "^5.7.32"
   },
   "nyc": {
     "extension": [
