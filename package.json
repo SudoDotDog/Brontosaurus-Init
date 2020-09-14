@@ -26,7 +26,7 @@
     "connor": "^2.7.0"
   },
   "devDependencies": {
-    "@sudoo/triforce": "^2.8.5",
+    "@sudoo/triforce": "^2.8.7",
     "@types/mongoose": "^5.7.36"
   },
   "nyc": {
