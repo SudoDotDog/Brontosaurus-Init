@@ -14,7 +14,7 @@ import { PreparedNamespace, prepareNamespace } from "./namespace";
 import { ERROR_CODE, panic } from "./panic";
 import { checkPrepared, preparePreference } from "./preference";
 
-export const initDatabase = async (databasePath: string): Promise<void> => {
+export const initDatabase = async (databasePath: string): Promise<boolean> => {
 
     const db: Connection = connect(databasePath);
     db.on('error', console.log.bind(console, 'connection error:'));
@@ -45,10 +45,12 @@ export const initDatabase = async (databasePath: string): Promise<void> => {
         await prepareAccount(groups, namespaces);
 
         log.info('Succeed');
+        return true;
     } catch (err) {
 
         log.error(err);
         log.critical('Failed');
+        return false;
     } finally {
 
         await db.close();

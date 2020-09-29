@@ -4,7 +4,8 @@
  * @description CLI
  */
 
-import { Argument, Coco, Command, Option } from "@sudoo/coco";
+import { Argument, Coco, Command } from "@sudoo/coco";
+import { initDatabase } from "./init";
 
 const coco = Coco.create();
 
@@ -16,9 +17,8 @@ type CommandOption = {
 coco.command(Command.create('init')
     .argument(Argument.create('databasePath'))
     .then(async (args: CommandOption) => {
-        const path: string = Path.resolve(args.path);
-        const version: Version = await readConfig(path);
-        console.log(version.toString());
+
+        await initDatabase(args.databasePath);
     }),
 );
 
