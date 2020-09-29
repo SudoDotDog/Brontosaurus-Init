@@ -17,9 +17,8 @@ Fs.writeFileSync(Path.join(appPath, 'LICENSE'), license, 'utf8');
 const parent: any = JSON.parse(Fs.readFileSync(packagePath, 'utf8'));
 const appPackage: any = {
     name: parent.name,
-    main: "index.js",
     bin: {
-        version: "bin",
+        "brontosaurus-init": "bin",
     },
     version: parent.version,
     description: parent.description,
@@ -34,6 +33,6 @@ const appPackage: any = {
 Fs.writeFileSync(Path.join(appPath, 'package.json'), JSON.stringify(appPackage, null, 2), 'utf8');
 Fs.writeFileSync(Path.join(appPath, 'bin'), [
     `#!/usr/bin/env node`, '',
-    `const version = require('./cli.js').execute;`,
-    `version(process.argv);`, '',
+    `const init = require('./cli.js').execute;`,
+    `init(process.argv);`, '',
 ].join('\n'));

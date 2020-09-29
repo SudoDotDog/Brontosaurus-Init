@@ -117,6 +117,14 @@
   resolved "https://registry.yarnpkg.com/@sudoo/eslint-config/-/eslint-config-1.6.0.tgz#731649381a77c264ee3751ed1394ad88907be7fa"
   integrity sha512-6rzwwaA8bSJuCxEvG4Jy5YVkA97qx7CvpZAyu3ZN2QCeSaX7d0jBlGOyJbxlZJC2p8cee+FjQBg4mbK6N3sKqw==
 
+"@sudoo/io@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@sudoo/io/-/io-1.8.0.tgz#bc57ae7ed0d76797415c1aab9cc7ea7857c3e46e"
+  integrity sha512-Gvfx9SnCiZSQO6F0gIZzNMSjJWqr/zWfofJIa0TOc/OIdNgQ9wGyS69wWFXgdtQVvWNXYDjw+efwZmlH2i9VrA==
+  dependencies:
+    "@sudoo/bark" "^2.7.2"
+    connor "^2.7.0"
+
 "@sudoo/log@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@sudoo/log/-/log-1.4.1.tgz#3c416b35a2240353234ee75461a6bc79db25ee32"
