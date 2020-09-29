@@ -1,7 +1,7 @@
 {
   "name": "@brontosaurus/init",
+  "version": "1.0.0",
   "description": ":herb: Initialize brontosaurus database",
-  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
