@@ -22,7 +22,7 @@
     "@brontosaurus/db": "^3.23.1",
     "@sudoo/bark": "^2.7.2",
     "@sudoo/coco": "^1.8.5",
-    "@sudoo/log": "^1.5.1",
+    "@sudoo/log": "^1.6.0",
     "@sudoo/magic": "^1.8.0",
     "connor": "^2.7.0"
   },
