@@ -24,7 +24,7 @@
     "@sudoo/coco": "^1.8.5",
     "@sudoo/log": "^1.7.0",
     "@sudoo/magic": "^1.9.0",
-    "connor": "^2.7.0"
+    "connor": "^2.8.0"
   },
   "devDependencies": {
     "@sudoo/io": "^1.8.0",
